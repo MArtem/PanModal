@@ -610,6 +610,7 @@
 		0F2A2C5B2239C119003BDB2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_STRICT_CONCURRENCY = targeted;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -639,6 +640,7 @@
 		0F2A2C5C2239C119003BDB2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_STRICT_CONCURRENCY = targeted;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -668,6 +670,7 @@
 		743CABCC2226171500634A5A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_STRICT_CONCURRENCY = targeted;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Tests/Info.plist;
@@ -688,6 +691,7 @@
 		743CABCD2226171500634A5A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_STRICT_CONCURRENCY = targeted;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Tests/Info.plist;
@@ -708,6 +712,7 @@
 		DCA741BA216D90420021F2F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_STRICT_CONCURRENCY = targeted;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -770,6 +775,7 @@
 		DCA741BB216D90420021F2F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_STRICT_CONCURRENCY = targeted;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -826,6 +832,7 @@
 		DCA741BD216D90420021F2F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_STRICT_CONCURRENCY = targeted;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -847,6 +854,7 @@
 		DCA741BE216D90420021F2F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SWIFT_STRICT_CONCURRENCY = targeted;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
