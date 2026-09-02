@@ -23,6 +23,7 @@ import UIKit
  By conforming to the PanModalPresentable protocol & overriding values
  the presented view can define its layout configuration & presentation.
  */
+@MainActor
 open class PanModalPresentationController: UIPresentationController {
 
     /**
@@ -697,10 +698,11 @@ private extension PanModalPresentationController {
             /**
              Incase we have a situation where we have two containerViews in the same presentation
              */
-            guard self?.containerView != nil
-                else { return }
-
-            self?.didPanOnScrollView(scrollView, change: change)
+            let oldContentOffset = change.oldValue
+            DispatchQueue.main.async { [weak self, weak scrollView] in
+                guard let self, let scrollView, self.containerView != nil else { return }
+                self.didPanOnScrollView(scrollView, oldContentOffset: oldContentOffset)
+            }
         }
     }
 
@@ -713,7 +715,7 @@ private extension PanModalPresentationController {
      This is also shown in Apple Maps (reverse engineering)
      which allows us to seamlessly transition scrolling from the panContainerView to the scrollView
      */
-    func didPanOnScrollView(_ scrollView: UIScrollView, change: NSKeyValueObservedChange<CGPoint>) {
+    func didPanOnScrollView(_ scrollView: UIScrollView, oldContentOffset: CGPoint?) {
 
         guard
             !presentedViewController.isBeingDismissed,
@@ -749,7 +751,7 @@ private extension PanModalPresentationController {
              In the case where we drag down quickly on the scroll view and let go,
              `handleScrollViewTopBounce` adds a nice elegant touch.
              */
-            handleScrollViewTopBounce(scrollView: scrollView, change: change)
+            handleScrollViewTopBounce(scrollView: scrollView, oldContentOffset: oldContentOffset)
         } else {
             trackScrolling(scrollView)
         }
@@ -782,9 +784,9 @@ private extension PanModalPresentationController {
      - Note: This works best where the view behind view controller is a UIScrollView.
      So, for example, a UITableViewController.
      */
-    func handleScrollViewTopBounce(scrollView: UIScrollView, change: NSKeyValueObservedChange<CGPoint>) {
+    func handleScrollViewTopBounce(scrollView: UIScrollView, oldContentOffset: CGPoint?) {
 
-        guard let oldYValue = change.oldValue?.y, scrollView.isDecelerating
+        guard let oldYValue = oldContentOffset?.y, scrollView.isDecelerating
             else { return }
 
         let yOffset = scrollView.contentOffset.y

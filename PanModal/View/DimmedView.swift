@@ -11,6 +11,7 @@ import UIKit
 /**
  A dim view for use as an overlay over content you want dimmed.
  */
+@MainActor
 public class DimmedView: UIView {
 
     /**

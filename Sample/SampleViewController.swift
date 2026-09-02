@@ -8,6 +8,7 @@
 
 import UIKit
 
+@MainActor
 class SampleViewController: UITableViewController {
 
     override func viewDidLoad() {
@@ -58,13 +59,16 @@ class SampleViewController: UITableViewController {
     }
 }
 
+@MainActor
 protocol RowPresentable {
     var string: String { get }
     var rowVC: UIViewController & PanModalPresentable { get }
 }
 
+@MainActor
 private extension SampleViewController {
 
+    @MainActor
     enum RowType: Int, CaseIterable {
         case basic
         case fullScreen
